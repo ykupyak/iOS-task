@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Quote {
+struct Quote: Decodable {
     var symbol:String?
     var name:String?
     var currency:String?
@@ -15,4 +15,14 @@ struct Quote {
     var last:String?
     var variationColor:String?
     var myMarket:Market?
+
+
+    private enum CodingKeys: String, CodingKey {
+        case symbol
+        case name
+        case currency
+        case readableLastChangePercent
+        case last
+        case variationColor
+    }
 }

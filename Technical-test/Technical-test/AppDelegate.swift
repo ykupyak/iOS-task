@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc:QuotesListViewController = QuotesListViewController()
+
+        let favoritesManager = FavoritesManager()
+        let vc:QuotesListViewController = QuotesListViewController(favoritesManager: favoritesManager)
         let nc:UINavigationController = UINavigationController(rootViewController: vc)
         
         self.window?.rootViewController = nc
