@@ -17,6 +17,7 @@
 		1AC78CBF263C6686004D4F8F /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC78CBE263C6686004D4F8F /* Market.swift */; };
 		8D0672022A1D168C0077909E /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0672012A1D168C0077909E /* QuoteTableViewCell.swift */; };
 		8D0672052A1D1EA80077909E /* UIColor+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0672042A1D1EA80077909E /* UIColor+convert.swift */; };
+		8D0672072A1D23470077909E /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0672062A1D23470077909E /* FavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1AC78CBE263C6686004D4F8F /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		8D0672012A1D168C0077909E /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		8D0672042A1D1EA80077909E /* UIColor+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+convert.swift"; sourceTree = "<group>"; };
+		8D0672062A1D23470077909E /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA3C8B1263AA8360041430A /* DataManager.swift */,
+				8D0672062A1D23470077909E /* FavoritesManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				1AA3C8BA263AB2980041430A /* Quote.swift in Sources */,
 				8D0672022A1D168C0077909E /* QuoteTableViewCell.swift in Sources */,
 				1AA3C897263AA2030041430A /* AppDelegate.swift in Sources */,
+				8D0672072A1D23470077909E /* FavoritesManager.swift in Sources */,
 				1AC78CBF263C6686004D4F8F /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

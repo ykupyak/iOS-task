@@ -14,6 +14,7 @@ class QuoteTableViewCell: UITableViewCell {
     let currencyLabel = UILabel()
     let readableLastChangePercentLabel = UILabel()
     let favoriteImageView = UIImageView()
+    private var favoritesManager: FavoritesManager?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,13 +62,14 @@ class QuoteTableViewCell: UITableViewCell {
         ])
     }
 
-    func configure(with quote: Quote) {
+    func configure(with quote: Quote, favoritesManager: FavoritesManager) {
         nameLabel.text = quote.name
         lastLabel.text = quote.last
         currencyLabel.text = quote.currency
+        self.favoritesManager = favoritesManager
         readableLastChangePercentLabel.text = quote.readableLastChangePercent
         readableLastChangePercentLabel.textColor = UIColor.fromString(quote.variationColor)
-        if Bool.random() {
+        if favoritesManager.isFavorite(quote: quote) {
             favoriteImageView.image = UIImage(named: "favorite")
         } else {
             favoriteImageView.image = UIImage(named: "no-favorite")

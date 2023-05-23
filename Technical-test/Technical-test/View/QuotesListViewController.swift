@@ -12,6 +12,16 @@ class QuotesListViewController: UIViewController, UITableViewDataSource, UITable
     private let dataManager: DataManager = DataManager()
     private var market: Market? = nil
     private let tableView = UITableView()
+    private let favoritesManager: FavoritesManager
+
+    init(favoritesManager: FavoritesManager) {
+        self.favoritesManager = favoritesManager
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +43,13 @@ class QuotesListViewController: UIViewController, UITableViewDataSource, UITable
             } catch {
                 print("Error fetching quotes: \(error)")
             }
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if market != nil {
+            tableView.reloadData()
         }
     }
 
@@ -61,15 +78,15 @@ class QuotesListViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! QuoteTableViewCell
         if let quote = market?.quotes?[indexPath.row] {
-            cell.configure(with: quote)
+            cell.configure(with: quote, favoritesManager: favoritesManager)
         }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)           
+        tableView.deselectRow(at: indexPath, animated: true)
         if let quote = market?.quotes?[indexPath.row] {
-            let quoteDetailsViewController = QuoteDetailsViewController(quote: quote)
+            let quoteDetailsViewController = QuoteDetailsViewController(quote: quote, favoritesManager: favoritesManager)
             navigationController?.pushViewController(quoteDetailsViewController, animated: true)
         }
     }
