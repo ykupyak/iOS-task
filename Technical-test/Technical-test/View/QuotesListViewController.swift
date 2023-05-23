@@ -65,4 +65,13 @@ class QuotesListViewController: UIViewController, UITableViewDataSource, UITable
         }
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)           
+        if let quote = market?.quotes?[indexPath.row] {
+            let quoteDetailsViewController = QuoteDetailsViewController(quote: quote)
+            navigationController?.pushViewController(quoteDetailsViewController, animated: true)
+        }
+    }
+
 }
